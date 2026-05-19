@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\Chapter1\SetupController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Chapter1\SetupController;
+use App\Http\Controllers\Api\Chapter2\AgentPromptingController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -21,3 +22,12 @@ Route::prefix('chapter1')->middleware('auth:sanctum')->group(function (){
 
     Route::get('/me', [SetupController::class, 'me']);
 });
+
+Route::prefix('chapter2')->group(function (){
+
+    Route::get('/hello-world', [AgentPromptingController::class, 'helloWorld']);
+
+    Route::post('/prompt', [AgentPromptingController::class, 'promptWithInput']);
+});
+
+
