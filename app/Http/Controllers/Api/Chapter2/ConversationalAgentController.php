@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Api\Chapter2;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\{Request, JsonResponse};
 
-use App\Ai\Agents\CourseAssistant;
-
+use App\Ai\Agents\CourseAssistantAgent;
 
 class ConversationalAgentController extends Controller
 {
@@ -19,7 +18,7 @@ class ConversationalAgentController extends Controller
         $user = $request->user();
         $message = $request->input('message');
 
-        $response = (new CourseAssistant)
+        $response = (new CourseAssistantAgent)
         ->forUser($user)
         ->prompt($message);
 
@@ -43,7 +42,7 @@ class ConversationalAgentController extends Controller
         $message = $request->input('message');
         $conversationId = $request->input('conversation_id');
 
-        $response = (new CourseAssistant)
+        $response = (new CourseAssistantAgent)
         ->continue($conversationId, as: $user)
         ->prompt($message);
 

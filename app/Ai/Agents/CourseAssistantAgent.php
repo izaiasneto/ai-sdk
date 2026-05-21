@@ -9,12 +9,10 @@ use Laravel\Ai\Concerns\RemembersConversations;
 use Laravel\Ai\Contracts\{
     Agent,
     Conversational,
-    HasTools,
-    Tool,
 };
 use Laravel\Ai\Promptable;
 
-class CourseAssistant implements Agent, Conversational
+class CourseAssistantAgent implements Agent, Conversational
 {
     use Promptable, RemembersConversations;
 
