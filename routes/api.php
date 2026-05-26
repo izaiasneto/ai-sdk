@@ -38,6 +38,10 @@ Route::prefix('chapter2')->middleware('auth:sanctum')->group(function (){
     Route::post('/conversations/continue', [ConversationalAgentController::class, 'continueConversation']);
 
     Route::post('/structured/sentiment', [StructuredOutputController::class, 'analyzeSentiment']);
+
+    Route::get('/anonymous/simple', [StructuredOutputController::class, 'simpleAnonymousAgent']);
+
+    Route::post('/anonymous/structured', [StructuredOutputController::class, 'anonymousStructuredAgent']);
 });
 
 
