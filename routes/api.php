@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Chapter1\SetupController;
 use App\Http\Controllers\Api\Chapter2\{
+    AgentConfigController,
     AgentPromptingController,
     ConversationalAgentController,
     StructuredOutputController
@@ -42,6 +43,10 @@ Route::prefix('chapter2')->middleware('auth:sanctum')->group(function (){
     Route::get('/anonymous/simple', [StructuredOutputController::class, 'simpleAnonymousAgent']);
 
     Route::post('/anonymous/structured', [StructuredOutputController::class, 'anonymousStructuredAgent']);
+
+    Route::post('/config/creative', [AgentConfigController::class, 'creativeWrite']);
+
+    Route::post('/config/extract', [AgentConfigController::class, 'extractContact']);
 });
 
 
