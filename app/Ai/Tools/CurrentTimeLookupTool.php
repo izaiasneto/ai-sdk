@@ -9,7 +9,7 @@ use Stringable;
 
 use Carbon\Carbon;
 
-class CurrentTimeLookup implements Tool
+class CurrentTimeLookupTool implements Tool
 {
     /**
      * Get the description of the tool's purpose.

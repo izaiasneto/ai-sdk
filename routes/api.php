@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Chapter2\{
     ConversationalAgentController,
     StructuredOutputController
 };
+use App\Http\Controllers\Api\Chapter3\ToolUsageController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -47,6 +48,10 @@ Route::prefix('chapter2')->middleware('auth:sanctum')->group(function (){
     Route::post('/config/creative', [AgentConfigController::class, 'creativeWrite']);
 
     Route::post('/config/extract', [AgentConfigController::class, 'extractContact']);
+});
+
+Route::prefix('chapter3')->group(function () {
+    Route::post('/tools/time-assistant', [ToolUsageController::class, 'getRequestedTime']);
 });
 
 
