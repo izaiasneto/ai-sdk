@@ -55,6 +55,8 @@ Route::prefix('chapter3')->group(function () {
     Route::post('/tools/time-assistant', [ToolUsageController::class, 'getRequestedTime']);
 
     Route::post('/web/research', [SearchController::class, 'research']);
+
+    Route::post('/fetch/analyze', [SearchController::class, 'analyzerPage']);
 });
 
 
