@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Chapter2\{
     ConversationalAgentController,
     StructuredOutputController
 };
+use App\Http\Controllers\Api\Chapter3\SearchController;
 use App\Http\Controllers\Api\Chapter3\ToolUsageController;
 
 // Route::get('/user', function (Request $request) {
@@ -52,6 +53,8 @@ Route::prefix('chapter2')->middleware('auth:sanctum')->group(function (){
 
 Route::prefix('chapter3')->group(function () {
     Route::post('/tools/time-assistant', [ToolUsageController::class, 'getRequestedTime']);
+
+    Route::post('/web/research', [SearchController::class, 'research']);
 });
 
 
