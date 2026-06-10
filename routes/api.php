@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\Chapter2\{
 use App\Http\Controllers\Api\Chapter3\SearchController;
 use App\Http\Controllers\Api\Chapter3\ToolUsageController;
 use App\Http\Controllers\Api\Chapter4\FilePromptController;
+use App\Http\Controllers\Api\Chapter4\ImageGenerationController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -62,7 +63,10 @@ Route::prefix('chapter3')->group(function () {
 
 Route::prefix('chapter4')->group(function () {
     Route::post('files/analyze-document', [FilePromptController::class, 'analyzeDocument']);
+
     Route::post('files/analyze-image', [FilePromptController::class, 'analyzeImage']);
+
+    Route::post('images/generate', [ImageGenerationController::class, 'generateImage']);
 });
 
 
