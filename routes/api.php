@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\Chapter2\{
 };
 use App\Http\Controllers\Api\Chapter3\SearchController;
 use App\Http\Controllers\Api\Chapter3\ToolUsageController;
+use App\Http\Controllers\Api\Chapter4\AudiogenerationController;
 use App\Http\Controllers\Api\Chapter4\FilePromptController;
 use App\Http\Controllers\Api\Chapter4\ImageGenerationController;
 
@@ -67,6 +68,8 @@ Route::prefix('chapter4')->group(function () {
     Route::post('files/analyze-image', [FilePromptController::class, 'analyzeImage']);
 
     Route::post('images/generate', [ImageGenerationController::class, 'generateImage']);
+
+    Route::post('audio/generate', [AudiogenerationController::class, 'generateAudio']);
 });
 
 
