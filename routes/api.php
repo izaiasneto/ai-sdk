@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\Chapter2\{
 };
 use App\Http\Controllers\Api\Chapter3\SearchController;
 use App\Http\Controllers\Api\Chapter3\ToolUsageController;
+use App\Http\Controllers\Api\Chapter4\FilePromptController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -57,6 +58,11 @@ Route::prefix('chapter3')->group(function () {
     Route::post('/web/research', [SearchController::class, 'research']);
 
     Route::post('/fetch/analyze', [SearchController::class, 'analyzerPage']);
+});
+
+Route::prefix('chapter4')->group(function () {
+    Route::post('files/analyze-document', [FilePromptController::class, 'analyzeDocument']);
+
 });
 
 
