@@ -62,7 +62,7 @@ Route::prefix('chapter3')->group(function () {
 
 Route::prefix('chapter4')->group(function () {
     Route::post('files/analyze-document', [FilePromptController::class, 'analyzeDocument']);
-
+    Route::post('files/analyze-image', [FilePromptController::class, 'analyzeImage']);
 });
 
 
