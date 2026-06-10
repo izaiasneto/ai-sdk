@@ -70,6 +70,8 @@ Route::prefix('chapter4')->group(function () {
     Route::post('images/generate', [ImageGenerationController::class, 'generateImage']);
 
     Route::post('audio/generate', [AudiogenerationController::class, 'generateAudio']);
+
+    Route::post('audio/transcribe', [AudiogenerationController::class, 'transcribeAudio']);
 });
 
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Laravel\Ai\Audio;
+use Laravel\Ai\Transcription;
 
 class AudiogenerationController extends Controller
 {
@@ -26,6 +27,23 @@ class AudiogenerationController extends Controller
             'text' => $textInput,
             'path' => $path,
             'url' => asset('storage/' . $path)
+        ]);
+    }
+
+    public function transcribeAudio(Request $request): JsonResponse
+    {
+        $request->validate([
+            'audio' => 'required|file|mimes:mp3,mp4,wav,m4a,webm|max:25600'
+        ]);
+
+        $audioToTranscribe = $request->file('audio');
+
+        $transcript = Transcription::fromUpload($audioToTranscribe)->generate();
+
+        return response()->json([
+            'demo' => 'Basic Transcription',
+            'filename' => $audioToTranscribe->getClientOriginalName(),
+            'text' => (string) $transcript,
         ]);
     }
 }
